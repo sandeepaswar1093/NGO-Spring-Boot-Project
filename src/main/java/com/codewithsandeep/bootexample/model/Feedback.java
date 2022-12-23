@@ -1,7 +1,6 @@
 package com.codewithsandeep.bootexample.model;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,41 +12,25 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "admin")
+@Table(name = "feedback_details")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Admin {
+public class Feedback {
 	
 	@Id
-	@Column(name = "admin_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long adminId;
+	@Column(name = "feedback_id")
+	private Long feedbackId;
 	
-	@Column(name = "admin_name")
-	private String adminName;
+	@Column(name = "feedback_name")
+	private String feedbackName;
 	
-	@Column(name = "admin_contact")
-	private String adminContact;
+	@Column(name = "feedback_email")
+	private String feedbackEmail;
 	
-	@Column(name = "admin_adhar")
-	private String adminAdhar;
-	
-	@Column(name = "admin_gender")
-	private String adminGender;
-	
-	@Embedded
-	private Address address;
+	@Column(name = "feedback_suggestion")
+	private String feedbackSuggestion;
 
 }
-
-
-
-
-
-
-
-
-
-

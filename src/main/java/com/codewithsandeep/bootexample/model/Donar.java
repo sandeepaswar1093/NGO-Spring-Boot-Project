@@ -1,7 +1,6 @@
 package com.codewithsandeep.bootexample.model;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,41 +12,34 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "admin")
+@Table(name = "donar_details")
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-public class Admin {
+@NoArgsConstructor
+public class Donar {
 	
 	@Id
-	@Column(name = "admin_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long adminId;
+	@Column(name = "donar_id")
+	private Long donarId;
 	
-	@Column(name = "admin_name")
-	private String adminName;
+	@Column(name = "donar_name")
+	private String donarName;
 	
-	@Column(name = "admin_contact")
-	private String adminContact;
+	@Column(name ="doanr_contact")
+	private Long donarContact;
 	
-	@Column(name = "admin_adhar")
-	private String adminAdhar;
+	@Column(name = "donar_adhar")
+	private Long donarAdhar;
 	
-	@Column(name = "admin_gender")
-	private String adminGender;
+	@Column(name = "donar_dob")
+	private String donarDob;
 	
-	@Embedded
-	private Address address;
+	@Column(name = "donar_pan")
+	private String donarPAN;
+	
+	@Column(name = "donar_amount")
+	private Double donarAmount;
 
 }
-
-
-
-
-
-
-
-
-
-
