@@ -2,6 +2,7 @@ package com.codewithsandeep.bootexample.service;
 
 import java.util.List;
 
+import com.codewithsandeep.bootexample.dto.LoginDto;
 import com.codewithsandeep.bootexample.dto.StaffDto;
 
 public interface StaffService {
@@ -13,5 +14,7 @@ public interface StaffService {
 	public List<StaffDto> getAllStaff();
 
 	public void deleteStaff(Long staffId);
+	
+	public StaffDto getStaffByLOgin(LoginDto loginDto);
 
 }

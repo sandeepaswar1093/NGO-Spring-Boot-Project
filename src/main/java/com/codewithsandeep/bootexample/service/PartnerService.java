@@ -2,6 +2,7 @@ package com.codewithsandeep.bootexample.service;
 
 import java.util.List;
 
+import com.codewithsandeep.bootexample.dto.LoginDto;
 import com.codewithsandeep.bootexample.dto.PartnerDto;
 
 public interface PartnerService {
@@ -13,5 +14,7 @@ public interface PartnerService {
 	public List<PartnerDto> getAllPartner();
 	
 	public void deletePartner(Long partnerId);
+	
+	public PartnerDto getPartenrByLogin(LoginDto loginDto);
 
 }

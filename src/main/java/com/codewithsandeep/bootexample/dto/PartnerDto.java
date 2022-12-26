@@ -1,5 +1,8 @@
 package com.codewithsandeep.bootexample.dto;
 
+import com.codewithsandeep.bootexample.model.Address;
+
+import jakarta.persistence.Embedded;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
@@ -31,5 +34,10 @@ public class PartnerDto {
 	@NotEmpty
 	@Pattern(regexp = "^((https?|ftp|smtp):\\/\\/)?(www.)?[a-z0-9]+\\.[a-z]+(\\/[a-zA-Z0-9#]+\\/?)*$")
 	private String partnerWebsite;
+	
+	@Embedded
+	private Address address;
+
+	
 
 }

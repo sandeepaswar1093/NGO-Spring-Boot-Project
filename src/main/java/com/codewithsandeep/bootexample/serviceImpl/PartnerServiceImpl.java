@@ -7,6 +7,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.codewithsandeep.bootexample.dto.LoginDto;
 import com.codewithsandeep.bootexample.dto.PartnerDto;
 import com.codewithsandeep.bootexample.exception.ResourceNotFoundException;
 import com.codewithsandeep.bootexample.model.Partner;
@@ -55,6 +56,12 @@ public class PartnerServiceImpl implements PartnerService {
 				.orElseThrow(() -> new ResourceNotFoundException("Partner", "Partner Id", partnerId));
 		this.partnerRepository.delete(partner);
 
+	}
+
+	@Override
+	public PartnerDto getPartenrByLogin(LoginDto loginDto) {
+		Partner partner = this.partnerRepository.findByLogin(loginDto);
+		return this.modelMapper.map(partner, PartnerDto.class);
 	}
 
 }

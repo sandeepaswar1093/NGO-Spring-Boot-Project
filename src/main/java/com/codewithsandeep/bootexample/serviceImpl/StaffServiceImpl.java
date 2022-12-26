@@ -7,6 +7,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.codewithsandeep.bootexample.dto.LoginDto;
 import com.codewithsandeep.bootexample.dto.StaffDto;
 import com.codewithsandeep.bootexample.exception.ResourceNotFoundException;
 import com.codewithsandeep.bootexample.model.Staff;
@@ -58,8 +59,14 @@ public class StaffServiceImpl implements StaffService {
 	public void deleteStaff(Long staffId) {
 		Staff staff = this.staffRepository.findById(staffId)
 				.orElseThrow(() -> new ResourceNotFoundException("Staff", "Staff Id", staffId));
-	    this.staffRepository.delete(staff);
+		this.staffRepository.delete(staff);
 
+	}
+
+	@Override
+	public StaffDto getStaffByLOgin(LoginDto loginDto) {
+		Staff staff = this.staffRepository.findByLogin(loginDto);
+		return this.modelMapper.map(staff, StaffDto.class);
 	}
 
 }

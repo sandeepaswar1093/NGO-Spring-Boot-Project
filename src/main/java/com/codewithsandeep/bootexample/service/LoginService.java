@@ -1,5 +1,8 @@
 package com.codewithsandeep.bootexample.service;
 
-public interface LoginService {
+import com.codewithsandeep.bootexample.dto.LoginDto;
 
+public interface LoginService {
+	
+  public LoginDto getLogin(String loginUsername, String loginPassword);
 }

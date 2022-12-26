@@ -1,10 +1,14 @@
 package com.codewithsandeep.bootexample.model;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,7 +30,7 @@ public class Donar {
 	
 	@Column(name = "donar_name")
 	private String donarName;
-	
+	 
 	@Column(name ="doanr_contact")
 	private Long donarContact;
 	
@@ -41,5 +45,11 @@ public class Donar {
 	
 	@Column(name = "donar_amount")
 	private Double donarAmount;
+	
+	@Embedded
+	private Address address;
 
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "login_id")
+	private Login login;
 }

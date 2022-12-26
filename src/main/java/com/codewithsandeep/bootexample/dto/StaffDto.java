@@ -1,5 +1,8 @@
 package com.codewithsandeep.bootexample.dto;
 
+import com.codewithsandeep.bootexample.model.Address;
+
+import jakarta.persistence.Embedded;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -12,7 +15,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class StaffDto {
-	
+
 	private Long staffId;
 
 	@NotEmpty
@@ -24,7 +27,7 @@ public class StaffDto {
 	private Long staffContact;
 
 	@NotEmpty
-	@Size(min = 12,max =12, message = "Adhar must be 12 digits !!")
+	@Size(min = 12, max = 12, message = "Adhar must be 12 digits !!")
 	private Long staffAdhar;
 
 	@NotEmpty
@@ -35,5 +38,8 @@ public class StaffDto {
 
 	@NotEmpty
 	private String staffDob;
+
+	@Embedded
+	private Address address;
 
 }

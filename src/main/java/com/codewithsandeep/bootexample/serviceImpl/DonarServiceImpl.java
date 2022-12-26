@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.codewithsandeep.bootexample.dto.DonarDto;
+import com.codewithsandeep.bootexample.dto.LoginDto;
 import com.codewithsandeep.bootexample.exception.ResourceNotFoundException;
 import com.codewithsandeep.bootexample.model.Donar;
 import com.codewithsandeep.bootexample.repository.DonarRepository;
@@ -59,6 +60,12 @@ public class DonarServiceImpl implements DonarService {
 				.orElseThrow(() -> new ResourceNotFoundException("Donar", "Donar Id", donarId));
 		this.donarRepository.delete(donar);
 
+	}
+
+	@Override
+	public DonarDto getDonarByLogin(LoginDto loginDto) {
+		Donar donar = this.donarRepository.findByLogin(loginDto);
+		return this.modelMapper.map(donar, DonarDto.class);
 	}
 
 }

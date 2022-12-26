@@ -1,5 +1,8 @@
 package com.codewithsandeep.bootexample.dto;
 
+import com.codewithsandeep.bootexample.model.Address;
+
+import jakarta.persistence.Embedded;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
@@ -40,5 +43,10 @@ public class DonarDto {
 	
     @NotEmpty
 	private Double donarAmount;
+    
+    @Embedded
+	private Address address;
+
+    
 
 }

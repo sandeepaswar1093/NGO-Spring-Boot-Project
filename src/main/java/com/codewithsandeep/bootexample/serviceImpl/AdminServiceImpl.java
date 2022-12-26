@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.codewithsandeep.bootexample.dto.AdminDto;
+import com.codewithsandeep.bootexample.dto.LoginDto;
 import com.codewithsandeep.bootexample.exception.ResourceNotFoundException;
 import com.codewithsandeep.bootexample.model.Admin;
 import com.codewithsandeep.bootexample.repository.AdminRepository;
@@ -53,8 +54,16 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public void deleteAdmin(Long adminId) {
-		Admin admin = this.adminRepository.findById(adminId).orElseThrow(()->new ResourceNotFoundException("Admin","AdminId",adminId));
+		Admin admin = this.adminRepository.findById(adminId)
+				.orElseThrow(() -> new ResourceNotFoundException("Admin", "AdminId", adminId));
 		this.adminRepository.delete(admin);
+	}
+
+	@Override
+	public AdminDto getAdminByLogin(LoginDto loginDto) {
+
+		Admin admin = this.adminRepository.findByLogin(loginDto);
+		return this.modelmapper.map(admin, AdminDto.class);
 	}
 
 }

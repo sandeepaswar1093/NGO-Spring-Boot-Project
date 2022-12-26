@@ -1,5 +1,8 @@
 package com.codewithsandeep.bootexample.dto;
 
+import com.codewithsandeep.bootexample.model.Address;
+
+import jakarta.persistence.Embedded;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -29,4 +32,10 @@ public class AdminDto {
 	
 	@NotEmpty
 	private String adminGender;
+	
+	@Embedded
+	private Address address;
+
+	
+
 }
