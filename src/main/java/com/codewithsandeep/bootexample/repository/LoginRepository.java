@@ -1,3 +1,4 @@
+
 package com.codewithsandeep.bootexample.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
